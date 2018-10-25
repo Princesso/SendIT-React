@@ -9,8 +9,8 @@ npm i --save-dev webpack webpack-dev-server webpack-cli
 
 npm install react
 
-install babel-core, babel-loader, babel-preset-env,
-babel-preset-react, htm-webpack-plugin
+install @babel/core, babel-loader, @babel/preset-env,
+@babel/preset-react, htm-webpack-plugin
 
 
 npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin
@@ -34,3 +34,6 @@ specify loader too in a module object
 see this video:
 
 https://www.youtube.com/watch?v=deyxI-6C2u4
+
+create server
+npm install server
