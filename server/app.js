@@ -4,6 +4,7 @@ import cors from 'cors';
 
 const app = express();
 
+// define access policies
 app.use(
   cors({
     origin: "*",
@@ -12,6 +13,7 @@ app.use(
     optionsSuccessStatus: 204
   })
 );
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
