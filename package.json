@@ -38,9 +38,12 @@
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "history": "^4.7.2",
+    "pg": "^7.5.0",
+    "pg-hstore": "^2.3.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
+    "sequelize": "^4.41.0",
     "styled-components": "^4.0.2"
   }
 }
