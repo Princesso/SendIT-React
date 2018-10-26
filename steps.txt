@@ -37,3 +37,8 @@ https://www.youtube.com/watch?v=deyxI-6C2u4
 
 create server
 npm install server
+
+
+
+npm install --save sequelize
+npm install --save pg pg-hstore
