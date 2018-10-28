@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'index_bundle.js'
+    filename: 'main.js'
   },
   module:{
     rules: [
@@ -18,12 +18,17 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin ({
       template: './src/index.html'
     })
-  ]
+  ],
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
+  }
 }

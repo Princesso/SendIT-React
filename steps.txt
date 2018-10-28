@@ -9,11 +9,9 @@ npm i --save-dev webpack webpack-dev-server webpack-cli
 
 npm install react
 
-install babel-core, babel-loader, babel-preset-env,
-babel-preset-react, htm-webpack-plugin
+npm install --save-dev @babel/core, babel-loader, @babel/preset-env,
+@babel/preset-react, html-webpack-plugin
 
-
-npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin
 
 whenever you use webpack, congigure it in the
 root directory.
@@ -34,3 +32,150 @@ specify loader too in a module object
 see this video:
 
 https://www.youtube.com/watch?v=deyxI-6C2u4
+
+create server folder
+npm install server
+in server creTE app.js and create seever and listen to it 
+
+
+npm install -g sequelize-cli
+npm install --save sequelize
+npm install --save pg pg-hstore
+
+cd into server and do this
+
+sequelize init
+
+this creates a config folder, in config file change mysql to postgres
+
+do this on terminal
+pg-start
+psql
+
+I don't want to use my password so i would create a new role or user
+
+CREATE ROLE amanda WITH PASSWORD 'password';
+
+to give access to sarah 
+
+ALTER USER amanda WITH Superuser;
+ALTER USER amanda WITH Createdb;
+ALTER USER amanda WITH CreateRole;
+ALTER USER amanda WITH Login;
+
+in terminal of application run
+sequelize db:migrate
+
+It throws erors didn't find answers.
+to create database
+CREATE DATABASE tasks;
+
+GRANT ALL PRIVILEGES ON DATABASE tasks TO amanda; 
+ \list 
+ \connect tasks
+
+
+ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
+
+ in config.son file, in config folder, change database_development to tasks.
+ the db we just created
+
+ to create a table with the columns or attributes we do:
+
+ sequelize model:create --name task --attributes 'title:string description:text priority:integer iscompleted:boolean'
+
+ --name refers to the model/table, --attributes refer to columes
+
+ run:
+ sequelize db:migrate 
+
+ migrate is used to migrate the created models to the database
+
+ create a .sequelizerc file in the root directory and specify paths like this:
+
+
+
+
+ const path = require('path');
+
+ module.exports = {
+  "config" : path.resolve('./server/config/config.json'),
+  "models-path": path.resolve('./server/models'),
+  "migrations-path": path.resolve('./server/migrations'),
+  "seeders-path": path.resolve('./server/seeders')
+}
+
+
+move all database folder into server folder.
+
+inside models, create an entry point for models. Like this:
+
+
+
+
+
+const Sequelize = require('sequelize');
+const fs =require('fs');
+const path = require('path')
+const basename = path.basename(module.filename)
+
+const sequelize = new Sequelize('tasks', 'amanda' , 'password', {
+  host : 'localhost',
+  dialect : 'postgres',
+});
+
+const db = {}
+
+fs.readdirSync(__dirname)
+  .filter((file)=>{
+    return file.indexOf('.')!==0 && file !=basename && file.slice(-3) === '.js'
+  }).forEach((file)=>{
+    const model=sequelize.import(path.join(__dirname,file))
+    db[model.name]
+  })
+
+  Object.keys(db).forEach((modelName)=>{
+    if(db[modelName].associate){
+      db[modelName].associate(db)
+    }
+  })
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+modeule.exports = db
+
+
+see how to insert select, insert, update and delete from database using sequelize from here :
+
+https://www.youtube.com/watch?v=863BZw8Tg6w&index=2&list=PLfvnSu_yEgx6iDWzg3mXTBWPc81El4G5d
+
+start using sequelize , express for CRUD operations
+
+create view folder
+create route folder
+create public folder.
+
+public folder should contain 3 folders , images, javascript and stylesheets
+
+install ejs, embedded javascript
+create employee.ejs
+create task.ejs
+
+initialize both with html
+
+a little on how to use ejs 
+https://www.codementor.io/naeemshaikh27/node-with-express-and-ejs-du107lnk6
+
+http://perkframework.com/v1/guides/creating-a-dynamic-view-with-ejs.html
+
+
+
+
+
+
+
+
+
+
+
