@@ -5,12 +5,13 @@ const models = require('./models')
 const app = express();
 var path = require('path');
 
-//internal imports
-const todoRoute = require('./routes/todo')
+//general internal route settings
+const taskRoute = require('./routes/task')
 const employeeRoute =require('./routes/employee')
 
+
 //internal use
-app.use('/todo', todoRoute)
+app.use('/task', taskRoute)
 app.use('/employee',employeeRoute)
 
 
