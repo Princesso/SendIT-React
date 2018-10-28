@@ -165,8 +165,6 @@ install ejs, embedded javascript
 
 
 
-perform database operations. 
-see this video.
 
 
 
