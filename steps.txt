@@ -159,6 +159,15 @@ create public folder.
 public folder should contain 3 folders , images, javascript and stylesheets
 
 install ejs, embedded javascript
+create employee.ejs
+create task.ejs
+
+initialize both with html
+
+a little on how to use ejs 
+https://www.codementor.io/naeemshaikh27/node-with-express-and-ejs-du107lnk6
+
+http://perkframework.com/v1/guides/creating-a-dynamic-view-with-ejs.html
 
 
 
