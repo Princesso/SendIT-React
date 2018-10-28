@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 import cors from 'cors';
 const models = require('./models')
 const app = express();
+var path = require('path');
 
 //internal imports
 const todoRoute = require('./routes/todo')
@@ -11,6 +12,12 @@ const employeeRoute =require('./routes/employee')
 //internal use
 app.use('/todo', todoRoute)
 app.use('/employee',employeeRoute)
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 
 
 //to add to task table
