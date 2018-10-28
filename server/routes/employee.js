@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Joi = require('joi');
+//var Joi = require('joi');
 var bodyParser = require('body-parser');
 
 /* GET home page. */
