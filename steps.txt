@@ -9,11 +9,9 @@ npm i --save-dev webpack webpack-dev-server webpack-cli
 
 npm install react
 
-install @babel/core, babel-loader, @babel/preset-env,
-@babel/preset-react, htm-webpack-plugin
+npm install --save-dev @babel/core, babel-loader, @babel/preset-env,
+@babel/preset-react, html-webpack-plugin
 
-
-npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin
 
 whenever you use webpack, congigure it in the
 root directory.
@@ -35,19 +33,22 @@ see this video:
 
 https://www.youtube.com/watch?v=deyxI-6C2u4
 
-create server
+create server folder
 npm install server
+in server creTE app.js and create seever and listen to it 
 
 
 npm install -g sequelize-cli
 npm install --save sequelize
 npm install --save pg pg-hstore
 
+cd into server and do this
+
 sequelize init
 
 this creates a config folder, in config file change mysql to postgres
 
-do this
+do this on terminal
 pg-start
 psql
 
@@ -150,6 +151,16 @@ see how to insert select, insert, update and delete from database using sequeliz
 https://www.youtube.com/watch?v=863BZw8Tg6w&index=2&list=PLfvnSu_yEgx6iDWzg3mXTBWPc81El4G5d
 
 start using sequelize , express for CRUD operations
+
+create view folder
+create route folder
+create public folder.
+
+public folder should contain 3 folders , images, javascript and stylesheets
+
+install ejs, embedded javascript
+
+
 
 
 
