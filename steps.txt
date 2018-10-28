@@ -145,9 +145,17 @@ db.Sequelize = Sequelize;
 modeule.exports = db
 
 
+see how to insert select, insert, update and delete from database using sequelize from here :
+
+https://www.youtube.com/watch?v=863BZw8Tg6w&index=2&list=PLfvnSu_yEgx6iDWzg3mXTBWPc81El4G5d
+
+start using sequelize , express for CRUD operations
 
 
 
+
+perform database operations. 
+see this video.
 
 
 
