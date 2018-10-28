@@ -1,8 +1,69 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 import cors from 'cors';
-
+const models = require('./models')
 const app = express();
+
+//internal imports
+const todoRoute = require('./routes/todo')
+const employeeRoute =require('./routes/employee')
+
+//internal use
+app.use('/todo', todoRoute)
+app.use('/employee',employeeRoute)
+
+
+//to add to task table
+const task = models.task.build({
+  title: "Cook",
+  description: "cook food",
+  priority: 1,
+  iscompleted: false
+})
+//always save it to db after creating it
+// task.save().then((newTask)=>{
+//   console.log(newTask)
+// })
+
+//in models find a table task and select all from it. nb no arguments in findone
+
+// models.task.findOne().then((task)=>{
+//   console.log(task)
+// })
+
+//another way to select all. a where clause can also be passed in to find all, where...
+
+// models.task.findAll().then((tasks)=>{
+//   console.log(tasks)
+// })
+
+//findOne method with a filter or fetch a particular task
+
+// models.task.findOne({
+//   where :{
+//     title: "Call home"
+//   }
+// }).then((task)=>{
+//     console.log(task)
+//   })
+
+//find a record by ID in the task table
+
+// models.task.findById(3).then((task) => {
+//   console.log(task);
+// })
+
+//delete a record
+
+models.task.destroy({
+  where : {
+    title: "Call home"
+  }
+}).then(()=>{
+
+})
+
+
 
 // define access policies
 app.use(
