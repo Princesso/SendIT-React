@@ -1,17 +1,18 @@
 import React from 'react';
-import styled from 'styled-components'
 import colors from '../../../styles/colors'
+import './footer.css'
 
-const StyledFooter = styled.div`
-  background: ${colors.gray};
-  height: 50px;
- 
-`
 const Footer = () => {
   return(
-    <StyledFooter>
-      Footer
-    </StyledFooter>
+    <div className="footer">
+      <div>Copyright made by Oluebube Princess Egbuna © 2018</div>
+      <div>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
   )
 }
 
