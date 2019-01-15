@@ -10,13 +10,14 @@
   flex: 0 1 60%;
  }
 
-  ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 170px;
-  }
-  li {
-    margin: 9px;
-  }
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 170px;
+}
+
+li {
+  margin: 9px;
+}
