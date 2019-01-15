@@ -5,14 +5,10 @@ import colors from '../../../styles/colors'
 import './main-content.css'
 import Button from '../button'
 
-const MainContent = () => {
+const MainContent = ({ children }) => {
   return(
     <div className="main-content">
-     <div class="caption">
-        <h2>Box it! Send it!</h2>
-        <p id ="desc"> Deliver parcels anywhere</p>
-        <Button/>
-      </div>
+      {children}
     </div>
   )
 }
