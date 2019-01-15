@@ -1,0 +1,22 @@
+ .header {
+  background: #122c46;
+  min-height: 70px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  flex: 0 1 60%;
+ }
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 170px;
+  }
+  li {
+    margin: 9px;
+  }
