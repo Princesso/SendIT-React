@@ -17,8 +17,12 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env']
           }
-        }
+        },
       },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
     ]
   },
   plugins: [
@@ -28,7 +32,8 @@ module.exports = {
   ],
   devServer: {
     proxy: {
-      '/api': 'http://localhost:8080'
-    }
+      '/api': 'http://localhost:8080',
+    },
+    historyApiFallback: true
   }
 }
