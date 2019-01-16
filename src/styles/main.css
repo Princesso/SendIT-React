@@ -2,3 +2,21 @@
   margin: 0;
   padding: 0;
 }
+
+.form-holder {
+  align-self: center;
+  width: 400px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 9px;
+  display: inline-block;
+  margin: auto;
+  padding: 20px 5px;
+  position: absolute;
+  top:30%;
+  left:37%;
+}
+
+.link {
+  color: #2b70ac;
+}
