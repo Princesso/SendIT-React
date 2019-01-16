@@ -7,7 +7,7 @@ const LoginForm = () => {
   return(
     <div className="form-holder">
       <form className="form"> 
-      <h3>Login</h3>
+        <h3>Login</h3>
         <input type="email" placeholder="Email" required id="email"></input>
         <input type="password" placeholder="Password" required  id="password"></input>
         <button type="submit" id="submitBtn">Login</button>
