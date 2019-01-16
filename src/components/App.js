@@ -5,6 +5,7 @@ import Login from '../components/pages/login'
 import styled from 'styled-components'
 import '../styles/main.css'
 import RegistrationPage from './pages/registration';
+import DashboardPage from './pages/dashboard'
 
 const StyledApp = styled.div`
   height: 100%
@@ -20,7 +21,8 @@ class App extends Component{
           <StyledApp>
             <Route path="/register" exact component={RegistrationPage} />
             <Route path="/" exact component={HomePage} />
-            <Route path="/login" exact component={Login} />   
+            <Route path="/login" exact component={Login} />  
+            <Route path="/dashboard" exact component={DashboardPage} /> 
           </StyledApp>
         </Switch>
      </BrowserRouter>
