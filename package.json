@@ -33,6 +33,9 @@
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "axios": "^0.18.0",
     "history": "^4.7.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
