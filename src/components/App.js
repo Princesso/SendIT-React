@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import '../styles/main.css'
 import RegistrationPage from './pages/registration';
 import DashboardPage from './pages/dashboard'
+import {Provider} from 'react-redux'
+import Store from '../store'
 
 const StyledApp = styled.div`
   height: 100%
@@ -16,16 +18,18 @@ const StyledApp = styled.div`
 class App extends Component{
   render(){
    return(
-     <BrowserRouter>
-        <Switch>
-          <StyledApp>
-            <Route path="/register" exact component={RegistrationPage} />
-            <Route path="/" exact component={HomePage} />
-            <Route path="/login" exact component={Login} />  
-            <Route path="/dashboard" exact component={DashboardPage} /> 
-          </StyledApp>
-        </Switch>
-     </BrowserRouter>
+     <Provider store={Store}>
+      <BrowserRouter>
+          <Switch>
+            <StyledApp>
+              <Route path="/register" exact component={RegistrationPage} />
+              <Route path="/" exact component={HomePage} />
+              <Route path="/login" exact component={Login} />  
+              <Route path="/dashboard" exact component={DashboardPage} /> 
+            </StyledApp>
+          </Switch>
+      </BrowserRouter>
+     </Provider>
    );
   }
 }

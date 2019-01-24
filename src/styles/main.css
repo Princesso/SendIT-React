@@ -20,3 +20,18 @@
 .link {
   color: #2b70ac;
 }
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  border: 1px solid #ccc;
+  background: white;
+  overflow: auto;
+  border-radius: 9px;
+  outline: none;
+  padding: 20px;
+  display: block;
+}
