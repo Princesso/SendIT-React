@@ -11,6 +11,7 @@ export const userLogin = (loginData) => (dispatch) => {
     }
     window.localStorage.setItem('user_token', response.data.token)
     const decoded =  JSON.parse(atob(response.data.token.split('.')[1]));
+    //what should be passed in here is response.data.token.split('.')[1] as Authorization
     SetAuthHeaders(decoded)
     return dispatch({type: 'SET_USER', payload: decoded })
   })
