@@ -1,6 +1,8 @@
 .main-content {
   min-height: 695px;
-  background-image: url("https://www.myhermes.co.uk/resources/themes/myHermes/img/help/sap-guide/sapg-login-image.jpg") ;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.myhermes.co.uk/resources/themes/myHermes/img/help/sap-guide/sapg-login-image.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .caption {

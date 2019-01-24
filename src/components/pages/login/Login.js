@@ -1,17 +1,18 @@
 import React from 'react';
-import styled from 'styled-components'
-import colors from '../../../styles/colors'
+import Header from '../../shared/header'
+import LoginForm from '../../shared/login-form'
+import Footer from '../../shared/footer'
+import MainContent from '../../shared/main-content'
 
-const StyledLogin= styled.div`
-  background: ${colors.gray};
-  height: 50px;
- 
-`
 const Login= () => {
   return(
-    <StyledLogin>
-      <div className="header"> Login</div>
-    </StyledLogin>
+    <div>
+      <Header/>
+      <MainContent>
+        <LoginForm/>
+      </MainContent>   
+      <Footer/>
+    </div>
   )
 }
 
