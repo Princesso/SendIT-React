@@ -1,6 +1,6 @@
 import React from 'react';
-import colors from '../../../styles/colors'
 import './footer.css'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return(
@@ -8,8 +8,8 @@ const Footer = () => {
       <div>Copyright made by Oluebube Princess Egbuna © 2018</div>
       <div>
         <ul>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">FAQs</a></li>
+          <li><Link to="/" className="link">Contact</Link></li>
+          <li><Link to="/" className="link">FAQs</Link></li>
         </ul>
       </div>
     </div>
