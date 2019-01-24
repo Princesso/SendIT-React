@@ -11,3 +11,20 @@
   height: 100vh;
   position: relative;
 }
+
+.close-modal {
+
+}
+
+.view-parcel-buttons-div {
+  display: grid;
+  grid-template-columns: 5fr 1fr 5fr;
+}
+
+.view-parcel-buttons-div button {
+  width: 100%
+}
+
+.send-parcel-button-div {
+  display: flex;
+}

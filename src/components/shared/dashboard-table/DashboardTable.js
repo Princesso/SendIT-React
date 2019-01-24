@@ -3,28 +3,73 @@ import './dashboardtable.css'
 import ViewParcel from '../modal/ViewParcel'
 import NewParcel from '../modal/NewParcel'
 import ChangeDestination from '../modal/ChangeDestination'
+import {getUserParcels} from '../../../actions/userActions'
+import {Link, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class DashboardTable extends React.Component {
 	constructor() {
     super()
-    this.state = { viewParcel: false }
-    this.toggleView = this.toggleView.bind(this)
-  }
+    this.state = { viewParcel: false, createNew: false, selectedParcel: {}}
+    this.toggleCreateNew = this.toggleCreateNew.bind(this)
+    this.toggleViewParcel = this.toggleViewParcel.bind(this)
+	}
+	
 
-  toggleView() {
+  toggleCreateNew() {
+    this.setState({createNew: !this.state.createNew})
+	}
+
+	setSelectedParcel(id) {
+		this.setState({selectedParcel: this.props.userParcels.find(item => item.id === id )})
+	}
+
+	toggleViewParcel() {
     this.setState({viewParcel: !this.state.viewParcel})
-  } 
+	} 
+	
+	componentDidMount() {
+		this.props.getUserParcels()
+	}
+
+	componentDidUpdate() {
+		
+	}
 
   render() {
+		const parcels = this.props.userParcels;
+		const listOfParcels = parcels.map((userParcel, index) => {
+			return(
+					<tr key={index}>
+						<td>{userParcel.id}</td>
+						<td>{userParcel.senton.slice(0,10)}</td>
+						<td>{userParcel.itemname}</td>
+						<td>{userParcel.currentlocation}</td>
+						<td>{userParcel.toaddress}</td>
+						<td>Add Recipient to backend</td>
+						<td>{userParcel.status}</td>
+						<td>
+							<button
+								onClick={() => {
+									this.toggleViewParcel(),
+									this.setSelectedParcel(userParcel.id)
+								}}
+							>
+								View
+							</button></td>
+					</tr>
+			)
+		})
+
 		return(
 			<div>
-				<NewParcel toggleView={this.toggleView} viewParcel={this.state.viewParcel} />
-
+				<NewParcel toggleModalView={this.toggleCreateNew} visible={this.state.createNew} />
+				<ViewParcel toggleModalView={this.toggleViewParcel} visible={this.state.viewParcel} selectedUserParcel={this.state.selectedParcel}/>
 				<div className="dashcontainer">
 					<div className="welcome">
 						<h5>Welcome <span id="username"></span></h5>
-						<ChangeDestination toggleView={this.toggleView} viewParcel={this.state.viewParcel}/>
-						<button id="new-delivery" onClick={() => this.toggleView()}>New Delivery Order</button>
+						
+						<button id="new-delivery" onClick={() => this.toggleCreateNew()}>New Delivery Order</button>
 					</div>
 					<div className="cards">
 						<div className="card">
@@ -73,6 +118,7 @@ class DashboardTable extends React.Component {
 							<thead>
 								<tr>
 										<th data-name="id">ID</th>
+										<th data-name="id">SENT-ON</th>
 										<th data-name="itemname">ITEM NAME</th>
 										<th data-name="currentlocation">CURRENT LOCATION</th>
 										<th data-name="toaddress">DESTINATION</th>
@@ -81,33 +127,9 @@ class DashboardTable extends React.Component {
 										<th data-name="action">ACTION</th>
 									</tr>
 							</thead>
-			
-							{/* <tbody>
-								<!-- <tr>
-										<td>1</td>
-										<td>Dress</td>
-										<td>Alaba</td>
-										<td>Ikeja</td>
-										<td>pending</td>
-										<td><a href="./order-detail.html"><button>View</button></a></td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>Clothes</td>
-										<td>Alaba</td>
-										<td>Onitsha</td>
-										<td>Delivered</td>
-										<td><a href="./order-detail.html"><button>View</button></a></td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>Bags</td>
-										<td>Ojo</td>
-										<td>Obanikoro</td>
-										<td>pending</td>
-										<td><a href="./order-detail.html"><button>View</button></a></td>
-									</tr>  -->
-							</tbody> */}
+							<tbody>
+								{ listOfParcels }
+							</tbody>	
 						</table>
 					</div>
 				</div>
@@ -117,4 +139,8 @@ class DashboardTable extends React.Component {
   
 }
 
-export default DashboardTable
+const mapStateToProps = state => ({
+  userParcels: state.userParcels || []
+})
+
+export default connect(mapStateToProps, {getUserParcels}) (withRouter(DashboardTable))

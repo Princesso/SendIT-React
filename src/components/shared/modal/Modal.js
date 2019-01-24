@@ -2,15 +2,15 @@ import React from 'react'
 import './modal.css'
 
 const Modal = ({
-  toggleView,
+  toggleModalView,
   children
 }) => {
   return(
     <div className="modal-bg">
-      <div onClick={toggleView} className="overlay" />
+      <div onClick={toggleModalView} className="overlay" />
       <div className="modal">
         {children}
-        <button onClick={toggleView}>close</button>
+        <button onClick={() => toggleModalView()} className="close-modal">close</button>
       </div>
     </div>
   )

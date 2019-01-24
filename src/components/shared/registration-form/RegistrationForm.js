@@ -103,7 +103,7 @@ class RegistrationForm extends React.Component {
             onChange={ this.handleChange}
             />
           <button type="submit" id="submitBtn">Register</button>
-          <p id="message">Already have an account? <Link to="/login" className="link"> Login</Link></p>
+          <p id="message">Already have an account? <Link to="/login" className="linker"> Login</Link></p>
         </form>
       </div>
     )

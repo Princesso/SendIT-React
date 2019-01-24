@@ -3,11 +3,8 @@ import './button.css'
 import {Link} from 'react-router-dom'
 
 const Button = () => {
-  return(
-    
-      
-      <Link to="/" ><button className="button" type="button">Make a Delivery Order</button></Link>
-    
+  return( 
+      <Link to="/login" ><button className="button" type="button">Make a Delivery Order</button></Link>  
   )
 }
 

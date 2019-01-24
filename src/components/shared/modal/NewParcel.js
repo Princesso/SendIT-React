@@ -1,44 +1,107 @@
 import React from 'react'
 import Modal from './Modal'
+import {createParcel} from '../../../actions/userActions'
+import {connect} from 'react-redux'
 
 class NewParcel extends React.Component {
-  // constructor() {
-  //   super()
-  //   this.state = { viewParcel: false }
-  //   this.toggleView = this.toggleView.bind(this)
-  // }
+  state = {
+    itemName: '',
+    weight: 0,
+    fromAddress: '',
+    toAddress: '',
+    phoneNumber: '',
+    recipientName: ''
+  }
 
-  // toggleView() {
-  //   this.setState({viewParcel: !this.state.viewParcel})
-  // } 
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleSubmit= async(e) => {
+    e.preventDefault();
+    const newDeliveryData = this.state;
+    //write validation function
+    this.setState({
+      itemName: '',
+      weight: 0,
+      fromAddress: '',
+      toAddress: '',
+      phoneNumber: '',
+      recipientName: ''
+    })
+    this.props.createParcel(newDeliveryData)
+  }
 
   render(){
-    const { viewParcel } = this.props;
+    const { toggleModalView, visible } = this.props;
+    const { itemName, weight, fromAddress, toAddress, phoneNumber, recipientName } = this.state
     return (
       <div>
-        {viewParcel && 
-        <Modal toggleView={this.props.toggleView} className="modal">       
+        {visible && 
+        <Modal toggleModalView={toggleModalView} className="modal">       
           <div className="form-holder">
-            <form className="form"> 
+            <form className="form" method="post" onSubmit={this.handleSubmit}> 
               <h3>New Delivery Order</h3>
-              <input type="text" placeholder="Item Name" id="item-name"/>
-              <input type="number" placeholder="Approximate Weight in Kilograms" id="weight"/>
-              <input type="text" placeholder="Parcel Pick-up Location" autocomplete="address-level2" id="from-address"/>
-              <input type="text" placeholder="Recipient's Address" autocomplete="address-level2" id="to-address"/>
-              <input type="number" placeholder="Recipient's phone number" id="recipient-phone"/>
-              <input type="number" placeholder="Recipient's Name" id="recipient-name"/>
+              <input 
+                type="text" 
+                placeholder="Item Name" 
+                id="item-name"
+                name="itemName"
+                value={itemName}
+                onChange={this.handleChange}
+              />
+              <input 
+                type="number" 
+                placeholder="Approximate Weight in Kilograms" 
+                id="weight"
+                name="weight"
+                value={weight}
+                onChange={this.handleChange}
+              />
+              <input 
+                type="text" 
+                placeholder="Parcel Pick-up Location" 
+                autoComplete="address-level2" 
+                id="from-address"
+                name="fromAddress"
+                value={fromAddress}
+                onChange={this.handleChange}
+              />
+              <input 
+                type="text" 
+                placeholder="Recipient's Address" 
+                autoComplete="address-level2" 
+                id="to-address"
+                name="toAddress"
+                value={toAddress}
+                onChange={this.handleChange}
+              />
+              <input 
+                type="number" 
+                placeholder="Recipient's phone number" 
+                id="recipient-phone"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={this.handleChange}
+                />
+              <input 
+                type="text" 
+                placeholder="Recipient's Name" 
+                id="recipient-name"
+                name="recipientName"
+                value={recipientName}
+                onChange={this.handleChange}
+              />
               <p id="created"></p>
-              <button type="submit" class="send-parcel" id="send-parcel-button">Send Parcel</button>
+              <div className="send-parcel-button-div"><button type="submit" className="send-parcel" id="send-parcel-button">Send Parcel</button></div>
             </form>
           </div>
         </Modal>
         }
-        {/* <button onClick={this.props.toggleView}>
-          {viewParcel ? 'Hide' : 'Show new delivery order'}
-        </button> */}
       </div>
     )
   }
 }
+const mapStateToProps = state => ({
+  newParcel: state.newParcel
+})
 
-export default NewParcel
+export default connect(mapStateToProps, {createParcel})(NewParcel)
