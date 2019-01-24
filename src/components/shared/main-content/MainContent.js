@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 import colors from '../../../styles/colors'
+import './main-content.css'
+import Button from '../button'
 
-const StyledMainContent = styled.div`
-  background: ${colors.gray};
-  height: 50px;
- 
-`
 const MainContent = () => {
   return(
-    <StyledMainContent>
-      <div className="header"> main content</div>
-    </StyledMainContent>
+    <div className="main-content">
+     <div class="caption">
+        <h2>Box it! Send it!</h2>
+        <p id ="desc"> Deliver parcels anywhere</p>
+        <Button/>
+      </div>
+    </div>
   )
 }
 

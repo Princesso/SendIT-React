@@ -7,18 +7,15 @@ import MainContent from '../../shared/main-content'
 import SideBar from '../../shared/sidebar'
 
 const StyledHomePage = styled.div`
-
+  
 `
 
 const HomePage = () => {
   return(
     <StyledHomePage>
        <Header/>
-      <Link to="/login">Login</Link> 
-      <MainContent/>
-      <SideBar/>
-      <Footer/>  
-      
+       <MainContent/>
+      <Footer/>   
     </StyledHomePage>
   )
 }

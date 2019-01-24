@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components'
 import colors from '../../../styles/colors'
+import './header.css'
 
-const StyledHeader = styled.div`
-  background: ${colors.gray};
-  height: 50px;
- 
-`
 const Header = () => {
   return(
-    <StyledHeader>
-      <div className="header"> header</div>
-    </StyledHeader>
+    <div className="header">
+      <div > Send-It</div>
+      <div>
+        <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Login</li>
+        </ul>
+      </div>
+    </div>
   )
 }
 
