@@ -7,18 +7,18 @@
   border-radius: 5px;
   flex-wrap: wrap;
   border: 1px solid #ccc;
+  margin-bottom: 7px;
 }
 
 .form button {
-  margin:5px 5px;
   padding:2px 2px;
   border-radius: 9px;
   height: 35px;
   width: 30%;
   background:#2b70ac;
   font-size: 1em;
-  align-self: center;
   color: white;
+  margin: auto
 }
 
 .form h3 {
