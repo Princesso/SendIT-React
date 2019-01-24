@@ -30,7 +30,6 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
     if(nextProps.auth.isAuthenticated === true)
     this.props.history.push('/dashboard') 
   }
@@ -59,7 +58,7 @@ class LoginForm extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit" id="submitBtn">Login</button>
-          <p id="message">Have no account? <Link to="/register" className="link"> Register</Link></p>
+          <p id="message">Have no account? <Link to="/register" className="linker"> Register</Link></p>
         </form>
       </div>
     )
