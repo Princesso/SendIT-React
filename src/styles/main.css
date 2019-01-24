@@ -15,10 +15,16 @@
   position: absolute;
   top:30%;
   left:37%;
+  /* border: 1px solid black */
+}
+
+.linker {
+  color: #2b70ac;
+  cursor: pointer;
 }
 
 .link {
-  color: #2b70ac;
+  cursor: pointer;
 }
 
 .modal {
@@ -34,4 +40,17 @@
   outline: none;
   padding: 20px;
   display: block;
+}
+
+.caption p {
+  margin-bottom: 10px;
+}
+
+.caption button {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
