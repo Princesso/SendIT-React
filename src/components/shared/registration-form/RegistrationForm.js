@@ -2,6 +2,7 @@ import React from 'react'
 import '../../../styles/main.css'
 import './registration-form.css'
 import {Link, withRouter} from 'react-router-dom'
+import {Validator} from  '../../../utils/validator'
 
 class RegistrationForm extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     const signUpData = this.state;
     //write validation function
-
+    // Validator(signUpData)
        await fetch('https://sendit-it.herokuapp.com/api/v1/auth/signup', {
         method: "POST",
         body: JSON.stringify(signUpData),
@@ -54,7 +55,13 @@ class RegistrationForm extends React.Component {
     const {email,username, firstname, lastname, password} = this.state;
     return( 
       <div className="form-holder">
+        {/* {this.state.error && <p>{this.state.error}</p>} */}
         <form className="form" method="post" onSubmit={this.handleSubmit}> 
+        <div>
+          <p>
+            {/* render error */}
+          </p>
+        </div>
           <h3>Register</h3>
           <input 
             type="email" 

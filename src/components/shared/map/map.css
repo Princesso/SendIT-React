@@ -1,0 +1,12 @@
+.map-div {
+  width: 950px;
+  height: 900px;
+}
+
+@media all and (max-width:550px) and (min-width:0px) {
+  .map-div {
+    height: 350px;
+    width: 350px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,9 +1,4 @@
-const initialState = {
-  userParcels: [],
-  newParcel: {}
- };
- 
-/***
+ /***
  * The data structure of the initial state
  * is always same as the data structure of 
  * what is being returned
@@ -21,15 +16,34 @@ const initialState = {
         ...action.payload,
       ];
       case 'CREATE_PARCELS_SUCCESS':
-      return {
+      return [
         ...state,
-        newParcel: action.payload,
-      };
+        action.payload,
+      ];
       case 'CREATE_PARCELS_FAIL':
-      return {
+      return [
         ...state,
-        newParcel: action.payload,
-      };
+        action.payload,
+      ];
+      case 'CANCEL_PARCEL_SUCCESS':
+        const newState = state.map(item => {
+          if (item.id === action.payload.id) {
+            return action.payload;
+          }
+          return item;
+        });
+      return newState;
+    case 'CANCEL_PARCEL_FAIL':
+        return state;
+    case 'CHANGE_DESTINATION_SUCCESS':
+      const newState1 = state.map(item => {
+        if (item.id === action.payload.id) {
+          return action.payload;
+        }
+        return newState1;
+      });
+      case 'CHANGE_DESTINATION_FAILED':
+      return state;
     default:
       return state;
   }

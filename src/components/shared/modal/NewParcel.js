@@ -16,6 +16,7 @@ class NewParcel extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit= async(e) => {
+    const { toggleModalView} = this.props;
     e.preventDefault();
     const newDeliveryData = this.state;
     //write validation function
@@ -27,7 +28,7 @@ class NewParcel extends React.Component {
       phoneNumber: '',
       recipientName: ''
     })
-    this.props.createParcel(newDeliveryData)
+    this.props.createParcel(newDeliveryData , toggleModalView)
   }
 
   render(){

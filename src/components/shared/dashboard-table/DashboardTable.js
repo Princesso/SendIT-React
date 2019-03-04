@@ -12,9 +12,9 @@ class DashboardTable extends React.Component {
     super()
     this.state = { viewParcel: false, createNew: false, selectedParcel: {}}
     this.toggleCreateNew = this.toggleCreateNew.bind(this)
-    this.toggleViewParcel = this.toggleViewParcel.bind(this)
+		this.toggleViewParcel = this.toggleViewParcel.bind(this)
+		
 	}
-	
 
   toggleCreateNew() {
     this.setState({createNew: !this.state.createNew})
@@ -32,10 +32,6 @@ class DashboardTable extends React.Component {
 		this.props.getUserParcels()
 	}
 
-	componentDidUpdate() {
-		
-	}
-
   render() {
 		const parcels = this.props.userParcels;
 		const listOfParcels = parcels.map((userParcel, index) => {
@@ -46,11 +42,12 @@ class DashboardTable extends React.Component {
 						<td>{userParcel.itemname}</td>
 						<td>{userParcel.currentlocation}</td>
 						<td>{userParcel.toaddress}</td>
-						<td>Add Recipient to backend</td>
+						<td>{userParcel.recipient}</td>
 						<td>{userParcel.status}</td>
 						<td>
 							<button
 								onClick={() => {
+									// this.props.history.push(`/dashboard?id=${userParcel.id}`),
 									this.toggleViewParcel(),
 									this.setSelectedParcel(userParcel.id)
 								}}

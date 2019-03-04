@@ -13,6 +13,11 @@
 }
 
 .close-modal {
+  background:red;
+  border-radius: 5px;
+  width: 50px;
+  height:30px;
+  font-size:1em;
 
 }
 
@@ -27,4 +32,32 @@
 
 .send-parcel-button-div {
   display: flex;
+}
+
+.form p {
+  display: grid;
+  grid-template-columns: 5fr 3fr 4fr;
+  margin-left: 0;
+  text-align: left;
+}
+
+@media all and (max-width:550px) and (min-width:0px) {
+  .form-holder {
+    width: 300px;
+    margin-top: -26%;
+    margin-left: -36%;
+  }
+  h4 {
+    font-size: 15px;
+    line-height: 1.5
+  }
+  .close-modal {
+    margin-left: 85%;
+    background:red;
+    border-radius: 5px;
+  }
+  .form button {
+    width:100%;
+    margin-left: 0;
+  }
 }

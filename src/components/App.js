@@ -8,13 +8,14 @@ import RegistrationPage from './pages/registration';
 import DashboardPage from './pages/dashboard'
 import {Provider} from 'react-redux'
 import Store from '../store'
+import EditPage from './pages/edit/EditPage';
 
 const StyledApp = styled.div`
   height: 100%
   margin: 0;
   padding: 0;
 `
- 
+
 class App extends Component{
   render(){
    return(
@@ -26,6 +27,7 @@ class App extends Component{
               <Route path="/" exact component={HomePage} />
               <Route path="/login" exact component={Login} />  
               <Route path="/dashboard" exact component={DashboardPage} /> 
+              <Route path="/edit/:id" exact component={EditPage} /> 
             </StyledApp>
           </Switch>
       </BrowserRouter>

@@ -39,6 +39,11 @@ class LoginForm extends React.Component {
       <div className="form-holder">
         <form className="form" method="post" onSubmit={this.handleSubmit}> 
           <h3>Login</h3>
+          <div>
+            <p>
+              {/* render error */}
+            </p>
+          </div>
           <input 
             type="email" 
             placeholder="Email" 
