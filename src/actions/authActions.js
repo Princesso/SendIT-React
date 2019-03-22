@@ -1,9 +1,8 @@
 import axios from 'axios'
-import SetAuthHeaders from '../auth/SetAuthHeaders'
 
 const root = 'https://sendit-it.herokuapp.com';
 export const userLogin = (loginData) => (dispatch) => {
-  axios
+ return axios
   .post(`${root}/api/v1/auth/login`, loginData)
   .then((response) => {
     if(!response.data.token) {
@@ -11,13 +10,28 @@ export const userLogin = (loginData) => (dispatch) => {
     }
     window.localStorage.setItem('user_token', response.data.token)
     const decoded =  JSON.parse(atob(response.data.token.split('.')[1]));
-    SetAuthHeaders(decoded)
-    return dispatch({type: 'SET_USER', payload: decoded })
+    dispatch({type: 'SET_USER', payload: decoded })
+   return response
+  }).catch((error)=> {
+      throw  error
   })
 }
 
 export const userLogout = () => (dispatch) => {
   window.localStorage.removeItem('user_token')
-  SetAuthHeaders(false)
   return dispatch({type: 'LOGOUT_USER', payload:''})
+}
+
+export const userSignup = (signupData) => (dispatch) => {
+  return axios
+  .post('https://sendit-it.herokuapp.com/api/v1/auth/signup', signupData)
+  .then((response)=> {
+      dispatch({
+        type: 'USER_SIGNUP_SUCCESSFUL',
+        payload: response.data.data
+      })
+  })
+  .catch(()=>{
+    throw error
+  })
 }

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal 1`] = `ShallowWrapper {}`;
+
+exports[`it should render View parcel component 1`] = `<div />`;
+
+exports[`it should render new parcel component 1`] = `ReactWrapper {}`;

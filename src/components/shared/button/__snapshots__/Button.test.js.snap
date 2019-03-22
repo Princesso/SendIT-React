@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 1`] = `
+<a
+  href="/login"
+  onClick={[Function]}
+>
+  <button
+    className="button"
+    type="button"
+  >
+    Get Started
+  </button>
+</a>
+`;

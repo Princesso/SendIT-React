@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import './editpage.css'
 import { connect } from 'react-redux'
 import { changeUserParcelDestination } from '../../../actions/userActions'
+import { toast } from 'react-toastify';
 
 class EditPage extends React.Component {
   state = { 
@@ -22,9 +23,14 @@ class EditPage extends React.Component {
     e.preventDefault();
     const parcelId = this.props.match.params.id
     const newDestination = this.state
-    this.props.changeUserParcelDestination(parcelId, newDestination);
-    console.log(this.props)
-    this.props.history.push('/dashboard')
+    this.props.changeUserParcelDestination(parcelId, newDestination)
+    .then (() => {
+      this.props.history.push('/dashboard')
+      toast.success('You have changed the destination of this delivery order')
+    })
+    .catch(()=> {
+      toast.error('An error occurred while trying to cchange destination, try again')
+    })
   }
 
   handleChange = (e) => {
@@ -35,7 +41,6 @@ class EditPage extends React.Component {
 
   getParcelDetail = () => {
     const id = Number(this.props.match.params.id)
-    console.log(this.state, 'state of parcel')
     const userData = this.props.userParcels.find(item => item.id === id )
     return userData
   }
@@ -70,6 +75,7 @@ class EditPage extends React.Component {
           </div>
           <div className="edit-map-container"> <MapContainer/> </div>
         </div>
+      <Footer/>
       </div>
     )
   }

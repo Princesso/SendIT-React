@@ -22,31 +22,28 @@
 }
 
 .view-parcel-buttons-div {
-  display: grid;
-  grid-template-columns: 5fr 1fr 5fr;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%
 }
-
-.view-parcel-buttons-div button {
-  width: 100%
+.modal .form-holder .form .view-parcel-buttons-div a .change-destination, .modal .form-holder .form .view-parcel-buttons-div a .cancel-order{
+  margin-left: 0;
+  width: 100%;
+}
+.modal .form-holder .form .view-parcel-buttons-div a{
+  width: 40%;
 }
 
 .send-parcel-button-div {
   display: flex;
 }
 
-.form p {
-  display: grid;
-  grid-template-columns: 5fr 3fr 4fr;
-  margin-left: 0;
-  text-align: left;
+.order-detail-p {
+  display: flex;
+  justify-content: space-between
 }
 
 @media all and (max-width:550px) and (min-width:0px) {
-  .form-holder {
-    width: 300px;
-    margin-top: -26%;
-    margin-left: -36%;
-  }
   h4 {
     font-size: 15px;
     line-height: 1.5
