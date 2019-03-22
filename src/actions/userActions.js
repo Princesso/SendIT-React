@@ -3,31 +3,27 @@ import {getUserToken} from '../auth/authorizeUser'
 
 const root = 'https://sendit-it.herokuapp.com';
 export const getUserParcels = () => (dispatch) => {
-  axios
+ return axios
     .get(`${root}/api/v1/parcels`, {
       headers: {
         Authorization: 'Bearer ' + getUserToken()
       }
     })
     .then((response) => {
-      if (response.status==204 || response.status == 400) {
-        document.getElementById("dashboard-error").innerText = "You have not created any parcel delivery orders"
+      if (response.status==204) {
+        return response
       }
       else {
         dispatch({type: 'GET_PARCELS_SUCCESS', payload: response.data.data})
-      }
+      }  
+    }).catch((error)=>{
+        throw error
     })
-    .catch(error =>
-      dispatch({
-        type: 'GET_PARCELS_FAIL',
-        payload: null
-      })
-    )
     
 }
 
 export const createParcel = (newDeliveryData, toggleModal) => (dispatch) => {
-  axios
+  return axios
     .post(`${root}/api/v1/parcels`, newDeliveryData, {
       headers: {
         "Authorization": `Bearer ${getUserToken()}`
@@ -38,7 +34,9 @@ export const createParcel = (newDeliveryData, toggleModal) => (dispatch) => {
         toggleModal();
         return dispatch({type: 'CREATE_PARCELS_SUCCESS', payload: response.data.data})
       }
-      return dispatch({type: 'CREATE_PARCELS_FAIL', payload: 'Failed to get parcels'})
+    })
+    .catch(error => {
+      throw error
     })
 }
 
@@ -50,12 +48,11 @@ export const cancelUserParcel = (parcelId, toggleModal) => (dispatch) => {
       }
     })
     .then( (response) => {
-      if(response.status == 200 ) {
         toggleModal();
         return dispatch({type: 'CANCEL_PARCEL_SUCCESS', payload: response.data.data})
-      } else {
-        return dispatch({type: 'CANCEL_PARCEL_FAILED', payload: 'Failed to cancel delivery order'})
-      }
+    })
+    .catch(error => {
+      throw error
     })
 }
 
@@ -67,9 +64,9 @@ export const changeUserParcelDestination = (parcelId, newDestination ) => (dispa
       }
     })
     .then( (response) => {
-      if(response.status=200) 
         return dispatch({type: 'CHANGE_DESTINATION_SUCCESS', payload: response.data.data})
-      else
-      return dispatch({type: 'CHANGE_DESTINATION_FAILED', payload: 'Failed to change parcel destination'})
+    })
+    .catch(error => {
+      throw error
     })
 }

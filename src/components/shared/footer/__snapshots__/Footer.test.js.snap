@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form 1`] = `
+<div
+  className="footer"
+>
+  <div>
+    Copyright made by Oluebube Princess Egbuna © 2018
+  </div>
+  <div>
+    <ul>
+      <li>
+        <a
+          className="link"
+          href="/"
+          onClick={[Function]}
+        >
+          Contact
+        </a>
+      </li>
+      <li>
+        <a
+          className="link"
+          href="/"
+          onClick={[Function]}
+        >
+          FAQs
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

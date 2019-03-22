@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form 1`] = `
+<div
+  className="form-holder"
+>
+  <form
+    className="form"
+    method="post"
+    onSubmit={[Function]}
+  >
+    <div>
+      <p />
+    </div>
+    <h3>
+      Register
+    </h3>
+    <input
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      id="username"
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      id="firstname"
+      name="firstname"
+      onChange={[Function]}
+      placeholder="Firstname"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      id="lastname"
+      name="lastname"
+      onChange={[Function]}
+      placeholder="Lastname"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      id="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      className="submitBtn"
+      id="submitBtn"
+      type="submit"
+    >
+      <span
+        className="loading"
+      >
+         
+        <p>
+          Register
+        </p>
+      </span>
+    </button>
+    <p
+      className="message"
+    >
+      Already have an account? 
+      <a
+        className="linker"
+        href="/login"
+        onClick={[Function]}
+      >
+         Login
+      </a>
+    </p>
+  </form>
+</div>
+`;

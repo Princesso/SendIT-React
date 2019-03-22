@@ -2,64 +2,46 @@ import React from 'react'
 import '../../../styles/main.css'
 import './registration-form.css'
 import {Link, withRouter} from 'react-router-dom'
-import {Validator} from  '../../../utils/validator'
+import { ClipLoader} from 'react-spinners'
+import {toast} from 'react-toastify'
+import { userSignup } from '../../../actions/authActions'
+import {connect} from 'react-redux'
 
-class RegistrationForm extends React.Component {
+export class RegistrationForm extends React.Component {
   state = {
     email: '',
     username: '',
     firstname: '',
     lastname: '',
     password: '',
+    loading: false
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleSubmit= async(e) => {
+  handleSubmit= async(e) => {console.log('it is running >>><');
     e.preventDefault();
     const signUpData = this.state;
-    //write validation function
-    // Validator(signUpData)
-       await fetch('https://sendit-it.herokuapp.com/api/v1/auth/signup', {
-        method: "POST",
-        body: JSON.stringify(signUpData),
-        headers: {"Content-Type": "application/json"}
-      })
-      .then(function(response) {
-          return response.json();
-      })
-      .then((res) => {
+    this.props.userSignup(signUpData)
+    .then(() => {
         this.setState({
-          email: '',
-          username: '',
-          firstname: '',
-          lastname: '',
-          password: '',
+          loading: true
         })
-        if(res.status==200) this.props.history.push('/login')  
-        else {
-          let newParagraph = document.createElement("p")
-          let textNode = document.createTextNode("An error occurred while trying to register you")
-          newParagraph.appendChild(textNode)
-          let div = document.getElementById("register")
-          div.insertBefore(newParagraph, div.childNodes[0])
-          newParagraph.style.color('red')
-        }
-      })
-      .catch(error => {
-        
-      })
+        toast.success('Registration successful, login to continue')
+        this.props.history.push('/login')
+    })
+    .catch(error => { 
+        toast.error('An error while trying to register you')
+    })
   }
 
   render() {
     const {email,username, firstname, lastname, password} = this.state;
     return( 
       <div className="form-holder">
-        {/* {this.state.error && <p>{this.state.error}</p>} */}
         <form className="form" method="post" onSubmit={this.handleSubmit}> 
         <div>
           <p>
-            {/* render error */}
           </p>
         </div>
           <h3>Register</h3>
@@ -109,12 +91,16 @@ class RegistrationForm extends React.Component {
             value={password}
             onChange={ this.handleChange}
             />
-          <button type="submit" id="submitBtn">Register</button>
-          <p id="message">Already have an account? <Link to="/login" className="linker"> Login</Link></p>
+            <button type="submit" id="submitBtn" className="submitBtn"><span className="loading"> <ClipLoader color={'white'} loading={this.state.loading} size={18} /><p>Register</p></span></button>
+          <p className="message">Already have an account? <Link to="/login" className="linker"> Login</Link></p>
         </form>
       </div>
     )
   }
 }
 
-export default withRouter (RegistrationForm);
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, {userSignup})(withRouter (RegistrationForm));

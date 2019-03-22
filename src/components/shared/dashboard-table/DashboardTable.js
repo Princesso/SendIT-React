@@ -1,11 +1,14 @@
 import React from 'react'
-import './dashboardtable.css'
 import ViewParcel from '../modal/ViewParcel'
 import NewParcel from '../modal/NewParcel'
 import ChangeDestination from '../modal/ChangeDestination'
 import {getUserParcels} from '../../../actions/userActions'
 import {Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {toast} from 'react-toastify'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTruck, faCheck, faClock, faBan } from "@fortawesome/free-solid-svg-icons";
+import './dashboardtable.css'
 
 class DashboardTable extends React.Component {
 	constructor() {
@@ -30,10 +33,20 @@ class DashboardTable extends React.Component {
 	
 	componentDidMount() {
 		this.props.getUserParcels()
+		.then(()=>{
+				toast.success('You have not created any parcles yet')
+		})
+		.catch((error)=> {
+			toast.error('An error occurred when trying to get your parcels')
+		})
 	}
 
   render() {
 		const parcels = this.props.userParcels;
+		const total = this.props.userParcels.length;
+		const canceledParcels = this.props.userParcels.filter(parcel => parcel.status == 'canceled').length
+		const pendingParcels = this.props.userParcels.filter(parcel => parcel.status == 'pending').length
+		const deliveredParcels = this.props.userParcels.filter(parcel => parcel.status == 'delivered').length
 		const listOfParcels = parcels.map((userParcel, index) => {
 			return(
 					<tr key={index}>
@@ -47,7 +60,6 @@ class DashboardTable extends React.Component {
 						<td>
 							<button
 								onClick={() => {
-									// this.props.history.push(`/dashboard?id=${userParcel.id}`),
 									this.toggleViewParcel(),
 									this.setSelectedParcel(userParcel.id)
 								}}
@@ -71,38 +83,38 @@ class DashboardTable extends React.Component {
 					<div className="cards">
 						<div className="card">
 							<div id="delivery-truck">
-									<span className="fas fa-truck"></span>
+									<span className="fas fa-truck"><FontAwesomeIcon icon={faTruck} /></span>
 							</div>
 							<div>
 									<h6>Orders</h6>
-									<p id="total-orders"></p>
+									<p id="total-orders">{total }</p>
 							</div>
 						</div>
 						<div className="card">
 								<div id="delivery-truck">
-										<span className="fas fa-check"></span>
+										<span className="fas fa-check"><FontAwesomeIcon icon={faCheck} /></span>
 								</div>
 								<div>
 										<h6>Delivered</h6>
-										<p id="total-delivered"></p>
+										<p id="total-delivered">{deliveredParcels}</p>
 								</div>
 						</div>
 						<div className="card">
 								<div id="delivery-truck">
-										<span className="fas fa-clock"></span>
+										<span className="fas fa-clock"><FontAwesomeIcon icon={faClock} /></span>
 								</div>
 								<div>
 										<h6>Pending</h6>
-										<p id="total-pending"></p>
+										<p id="total-pending">{pendingParcels}</p>
 								</div>
 						</div>
 						<div className="card">
 								<div id="delivery-truck">
-										<span className="fas fa-ban"></span>
+										<span className="fas fa-ban"><FontAwesomeIcon icon={faBan} /></span>
 								</div>
 								<div>
 										<h6>Canceled</h6>
-										<p id="total-canceled"></p>
+										<p id="total-canceled">{canceledParcels}</p>
 								</div>
 						</div>
 					</div>
