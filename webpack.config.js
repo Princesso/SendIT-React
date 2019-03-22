@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack')
+const webpack = require('webpack');
+require('dotenv').config();
+
 
 module.exports = {
   entry: './src/index.js',
@@ -38,6 +40,7 @@ module.exports = {
         API_URL: JSON.stringify(process.env.API_URL),
         MAP_API_KEY: JSON.stringify(process.env.MAP_API_KEY),
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        API_KEY: JSON.stringify(process.env.API_KEY),
       },
     }),
   ],

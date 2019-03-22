@@ -9,6 +9,8 @@ import DashboardPage from './pages/dashboard'
 import {Provider} from 'react-redux'
 import Store from '../store'
 import EditPage from './pages/edit/EditPage';
+import { toast , ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const StyledApp = styled.div`
   height: 100%
@@ -20,6 +22,7 @@ class App extends Component{
   render(){
    return(
      <Provider store={Store}>
+     <ToastContainer/>
       <BrowserRouter>
           <Switch>
             <StyledApp>

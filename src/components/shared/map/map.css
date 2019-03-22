@@ -1,12 +1,19 @@
 .map-div {
-  width: 950px;
-  height: 900px;
+  width: 100%;
+  height: 100%;
+}
+
+.super-awesome-pin {
+  color: red;
+  height: 10px;
+  width: 10px;
 }
 
 @media all and (max-width:550px) and (min-width:0px) {
   .map-div {
-    height: 350px;
-    width: 350px;
+    height: 503px;
+    width: 93%;
     margin-bottom: 10px;
+    padding: 3%;
   }
 }

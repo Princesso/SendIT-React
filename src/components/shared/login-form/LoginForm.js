@@ -4,11 +4,14 @@ import '../../../styles/main.css'
 import {Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {userLogin} from '../../../actions/authActions'
+import { ClipLoader } from 'react-spinners';
+import { toast} from 'react-toastify';
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   state = {
     email: '',
     password:'',
+    loading: false
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -18,10 +21,16 @@ class LoginForm extends React.Component {
     const loginData = this.state;
     //write validation function
     this.setState({
-      email: '',
-      password:'',
+      loading: true
     })
     this.props.userLogin(loginData)
+    .then(()=> {
+     return toast.success('Login successful')
+    })
+    .catch(()=> {
+      this.setState({loading: false})
+      return toast.error('An error occurred while trying to log you in check your details');
+    })
   }
 
   componentDidMount() {
@@ -39,11 +48,6 @@ class LoginForm extends React.Component {
       <div className="form-holder">
         <form className="form" method="post" onSubmit={this.handleSubmit}> 
           <h3>Login</h3>
-          <div>
-            <p>
-              {/* render error */}
-            </p>
-          </div>
           <input 
             type="email" 
             placeholder="Email" 
@@ -62,8 +66,8 @@ class LoginForm extends React.Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button type="submit" id="submitBtn">Login</button>
-          <p id="message">Have no account? <Link to="/register" className="linker"> Register</Link></p>
+          <button type="submit" id="submitBtn"><span className="loading"> <ClipLoader color={'white'} loading={this.state.loading} size={20} /><p>Login</p></span></button>
+          <p className="message"> <span></span> Have no account? <span><Link to="/register" className="linker"> Register</Link></span></p>
         </form>
       </div>
     )
