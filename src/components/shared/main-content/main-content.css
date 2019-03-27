@@ -1,5 +1,5 @@
 .main-content {
-  min-height: 695px;
+  min-height: 700px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.myhermes.co.uk/resources/themes/myHermes/img/help/sap-guide/sapg-login-image.jpg") ;
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,14 +12,9 @@
   flex-direction: column;
   justify-content: center;
   line-height: 1.5;
-  height: 70vh;
+  height: 86vh;
 }
 
  h2 {
   font-size: 3em;
-}
-
-p {
-  font-size: 1.5em;
-  margin-top: 0;
 }

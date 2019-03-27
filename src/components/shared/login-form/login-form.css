@@ -18,7 +18,8 @@
   background:#2b70ac;
   font-size: 1em;
   color: white;
-  margin: auto
+  margin: auto;
+  margin-left: 35%;
 }
 
 .form h3 {
@@ -26,7 +27,8 @@
   text-align: center;
 }
 
-.form p {
+/* .form p {
   text-align: center;
-  font-size: 20px
-}
+  font-size: 20px;
+  margin-left: 16%;
+} */

@@ -1,11 +1,26 @@
 {
-  "name": "SendIT-React",
+  "name": "sendit-react",
   "version": "1.0.0",
   "description": "Andela Prep",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverage": true,
+    "verbose": true,
+    "modulePathIgnorePatterns": [
+      "rpmbuild"
+    ]
   },
   "repository": {
     "type": "git",
@@ -21,13 +36,14 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.22.0",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
   },
@@ -35,14 +51,27 @@
     "@babel/cli": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
+    "babel-jest": "^24.5.0",
+    "dotenv": "^6.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "google-map-react": "^1.1.2",
     "history": "^4.7.2",
+    "jest": "^24.5.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "react-spinners": "^0.5.3",
+    "react-test-renderer": "^16.8.4",
+    "react-toastify": "^4.5.2",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.0.2"
   }

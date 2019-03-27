@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="logo"
+  >
+     Send-It
+  </div>
+  <div>
+    <ul>
+      <li>
+        <a
+          className="link"
+          href="/"
+          onClick={[Function]}
+        >
+          HOME
+        </a>
+      </li>
+      <li>
+        <a
+          className="link"
+          href="/"
+          onClick={[Function]}
+        >
+          ABOUT
+        </a>
+      </li>
+      <li>
+        <a
+          className="link"
+          href="/login"
+          onClick={[Function]}
+        >
+          LOGIN
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

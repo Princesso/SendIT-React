@@ -2,32 +2,37 @@ import React from 'react'
 import Modal from './Modal'
 import {createParcel} from '../../../actions/userActions'
 import {connect} from 'react-redux'
+import { ClipLoader} from 'react-spinners'
+import { toast } from 'react-toastify';
 
-class NewParcel extends React.Component {
+export class NewParcel extends React.Component {
   state = {
     itemName: '',
     weight: 0,
     fromAddress: '',
     toAddress: '',
     phoneNumber: '',
-    recipientName: ''
+    recipientName: '',
+    loading: false
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit= async(e) => {
+    const { toggleModalView} = this.props;
     e.preventDefault();
     const newDeliveryData = this.state;
     //write validation function
     this.setState({
-      itemName: '',
-      weight: 0,
-      fromAddress: '',
-      toAddress: '',
-      phoneNumber: '',
-      recipientName: ''
+      loading: true
     })
-    this.props.createParcel(newDeliveryData)
+    this.props.createParcel(newDeliveryData , toggleModalView)
+    .then(()=> {
+        toast.success('Successful')
+    })
+    .catch(() => {
+      toast.error('error while creating order, try again')
+    })
   }
 
   render(){
@@ -43,6 +48,7 @@ class NewParcel extends React.Component {
               <input 
                 type="text" 
                 placeholder="Item Name" 
+                required 
                 id="item-name"
                 name="itemName"
                 value={itemName}
@@ -54,25 +60,28 @@ class NewParcel extends React.Component {
                 id="weight"
                 name="weight"
                 value={weight}
+                required 
                 onChange={this.handleChange}
               />
               <input 
                 type="text" 
                 placeholder="Parcel Pick-up Location" 
-                autoComplete="address-level2" 
+                autoComplete="address-level3" 
                 id="from-address"
                 name="fromAddress"
                 value={fromAddress}
                 onChange={this.handleChange}
+                required 
               />
               <input 
                 type="text" 
                 placeholder="Recipient's Address" 
-                autoComplete="address-level2" 
+                autoComplete="address-level3" 
                 id="to-address"
                 name="toAddress"
                 value={toAddress}
                 onChange={this.handleChange}
+                required 
               />
               <input 
                 type="number" 
@@ -81,6 +90,7 @@ class NewParcel extends React.Component {
                 name="phoneNumber"
                 value={phoneNumber}
                 onChange={this.handleChange}
+                required 
                 />
               <input 
                 type="text" 
@@ -89,9 +99,10 @@ class NewParcel extends React.Component {
                 name="recipientName"
                 value={recipientName}
                 onChange={this.handleChange}
+                required 
               />
               <p id="created"></p>
-              <div className="send-parcel-button-div"><button type="submit" className="send-parcel" id="send-parcel-button">Send Parcel</button></div>
+              <button type="submit" id="submitBtn"><span className="loading"> <ClipLoader color={'white'} loading={this.state.loading} size={20} /><p>Send</p></span></button>
             </form>
           </div>
         </Modal>

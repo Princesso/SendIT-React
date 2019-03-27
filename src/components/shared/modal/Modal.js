@@ -5,6 +5,7 @@ const Modal = ({
   toggleModalView,
   children
 }) => {
+  console.log({children, toggleModalView})
   return(
     <div className="modal-bg">
       <div onClick={toggleModalView} className="overlay" />
