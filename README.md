@@ -1,6 +1,6 @@
 ## Send-IT
 [![Build Status](https://travis-ci.org/Princesso/SendIT-React.svg?branch=master)](https://travis-ci.org/Princesso/SendIT-React)
-[![Coverage Status](https://coveralls.io/repos/github/Princesso/SendIT-React/badge.svg?branch=master)](https://coveralls.io/github/Princesso/SendIT-React?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Princesso/SendIT-React/badge.svg?branch=chore-fixes)](https://coveralls.io/github/Princesso/SendIT-React?branch=chore-fixes)
 
 
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
@@ -20,6 +20,10 @@ Admin can change the location a parcel delivery order
 Nodejs: an open source server framework that allows you to run JavaScript on the server.
 Postgresql: open source object-relational database system.
 React: An open source library for building user interfaces.
+
+## Link to deployed app
+
+https://sendit-it-react.herokuapp.com/
 
 ## Link to API endpoints
 https://sendit-it.herokuapp.com/

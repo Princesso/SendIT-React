@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck, faCheck, faClock, faBan } from "@fortawesome/free-solid-svg-icons";
 import './dashboardtable.css'
 
-class DashboardTable extends React.Component {
+export class DashboardTable extends React.Component {
 	constructor() {
     super()
     this.state = { viewParcel: false, createNew: false, selectedParcel: {}}
@@ -31,9 +31,10 @@ class DashboardTable extends React.Component {
     this.setState({viewParcel: !this.state.viewParcel})
 	} 
 	
-	componentDidMount() {
+	componentDidMount() { 
 		this.props.getUserParcels()
-		.then(()=>{
+		.then((response)=>{
+			if (response.data.data.length == 0)
 				toast.success('You have not created any parcles yet')
 		})
 		.catch((error)=> {
