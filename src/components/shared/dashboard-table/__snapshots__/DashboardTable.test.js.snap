@@ -61,7 +61,7 @@ exports[`Dashboard table 1`] = `
           <p
             id="total-orders"
           >
-            0
+            2
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ exports[`Dashboard table 1`] = `
           <p
             id="total-pending"
           >
-            0
+            1
           </p>
         </div>
       </div>
@@ -178,7 +178,7 @@ exports[`Dashboard table 1`] = `
           <p
             id="total-canceled"
           >
-            0
+            1
           </p>
         </div>
       </div>
@@ -242,7 +242,64 @@ exports[`Dashboard table 1`] = `
             </th>
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+          <tr>
+            <td>
+              1
+            </td>
+            <td>
+              2019-03-26
+            </td>
+            <td>
+              bag
+            </td>
+            <td>
+              Abuja
+            </td>
+            <td>
+              Lagos
+            </td>
+            <td />
+            <td>
+              pending
+            </td>
+            <td>
+              <button
+                onClick={[Function]}
+              >
+                View
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2
+            </td>
+            <td>
+              2019-03-26
+            </td>
+            <td>
+              bag
+            </td>
+            <td>
+              Abuja
+            </td>
+            <td>
+              Lagos
+            </td>
+            <td />
+            <td>
+              canceled
+            </td>
+            <td>
+              <button
+                onClick={[Function]}
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

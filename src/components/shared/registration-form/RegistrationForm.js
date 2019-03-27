@@ -19,7 +19,7 @@ export class RegistrationForm extends React.Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleSubmit= async(e) => {console.log('it is running >>><');
+  handleSubmit= async(e) => {
     e.preventDefault();
     const signUpData = this.state;
     this.props.userSignup(signUpData)

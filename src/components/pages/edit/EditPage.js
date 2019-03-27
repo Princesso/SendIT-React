@@ -23,6 +23,7 @@ class EditPage extends React.Component {
     e.preventDefault();
     const parcelId = this.props.match.params.id
     const newDestination = this.state
+    console.log(this.props)
     this.props.changeUserParcelDestination(parcelId, newDestination)
     .then (() => {
       this.props.history.push('/dashboard')

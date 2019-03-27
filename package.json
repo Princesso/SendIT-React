@@ -2,13 +2,14 @@
   "name": "sendit-react",
   "version": "1.0.0",
   "description": "SendIT React",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start-dev": "webpack-dev-server --mode development --open --hot",
+    "start": "node server.js",
     "build": "webpack --mode production",
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "test-watch": "jest --watchAll",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test-dev": "jest"
   },
   "jest": {
     "moduleNameMapper": {
@@ -36,20 +37,11 @@
   },
   "homepage": "https://github.com/Princesso/APrep#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
-    "coveralls": "^3.0.3",
-    "css-loader": "^2.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "identity-obj-proxy": "^3.0.0",
-    "nyc": "^13.3.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.29.6",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "nyc": "^13.3.0",
+    "istanbul": "^0.4.5",
+    "coveralls": "^3.0.3"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
@@ -58,6 +50,19 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-istanbul": "^5.1.1",
+    "chalk": "^2.4.2",
+    "css-loader": "^2.1.0",
+    "express": "^4.16.4",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
     "axios": "^0.18.0",
     "babel-jest": "^24.5.0",
     "dotenv": "^6.2.0",
@@ -77,6 +82,7 @@
     "redux-devtools-extension": "^2.13.7",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.0.2"
+    "styled-components": "^4.0.2",
+    "winston": "^3.2.1"
   }
 }
