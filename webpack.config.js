@@ -10,7 +10,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'main.js',
-    publicPath: '/'
+    publicPath: '/',
+    globalObject: 'this'
   },
   module:{
     rules: [
