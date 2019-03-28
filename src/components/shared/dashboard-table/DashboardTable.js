@@ -33,7 +33,8 @@ export class DashboardTable extends React.Component {
 	
 	componentDidMount() { 
 		this.props.getUserParcels()
-		.then(()=>{
+		.then((response)=>{
+			if (response.data.data.length == 0)
 				toast.success('You have not created any parcles yet')
 		})
 		.catch((error)=> {

@@ -31,8 +31,9 @@
         if (item.id === action.payload.id) {
           return action.payload;
         }
-        return newState1;
+        return item;
       });
+    return newState1;
      
     default:
       return state;

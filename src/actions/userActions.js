@@ -10,12 +10,8 @@ export const getUserParcels = () => (dispatch) => {
       }
     })
     .then((response) => {
-      if (response.status==204) {
-        return response
-      }
-      else {
         dispatch({type: 'GET_PARCELS_SUCCESS', payload: response.data.data})
-      }  
+        return response
     }).catch((error)=>{
         throw error
     })
@@ -41,7 +37,7 @@ export const createParcel = (newDeliveryData, toggleModal) => (dispatch) => {
 }
 
 export const cancelUserParcel = (parcelId, toggleModal) => (dispatch) => {
-  axios
+ return axios
     .patch(`${root}/api/v1/parcels/${parcelId}/cancel`, {}, {
       headers: {
         "Authorization": 'Bearer ' + getUserToken()
@@ -57,14 +53,14 @@ export const cancelUserParcel = (parcelId, toggleModal) => (dispatch) => {
 }
 
 export const changeUserParcelDestination = (parcelId, newDestination ) => (dispatch) => {
-  axios
+ return axios
     .patch(`${root}/api/v1/parcels/${parcelId}/destination`, newDestination , {
       headers: {
         Authorization: 'Bearer ' + getUserToken()
       }
     })
     .then( (response) => {
-        return dispatch({type: 'CHANGE_DESTINATION_SUCCESS', payload: response.data.data})
+       dispatch({type: 'CHANGE_DESTINATION_SUCCESS', payload: response.data.data})
     })
     .catch(error => {
       throw error
