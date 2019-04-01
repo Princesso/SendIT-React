@@ -29,10 +29,15 @@ https://sendit-it-react.herokuapp.com/
 https://sendit-it.herokuapp.com/
 
 View all parcel delivery ordes: /api/v1/parcels
+
 View one parcel delivery order: /api/v1/parcels/
+
 Cancel a parcel delivery order: /api/v1/parcels//cancel
+
 View all users: /api/v1/users
+
 View a single user: /api/v1/users/
+
 View parcels belonging to user: /api/v1/users//parcels
 
 ## How to clone the project:
