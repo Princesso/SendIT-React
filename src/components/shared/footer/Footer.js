@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const Footer = () => {
   return(
     <div className="footer">
-      <div>Copyright made by Oluebube Princess Egbuna © 2018</div>
+      <div>Copyright © {(new Date()).getFullYear()}</div>
       <div>
         <ul>
           <li><Link to="/" className="link">Contact</Link></li>
