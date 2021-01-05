@@ -14,7 +14,8 @@ export class LoginForm extends React.Component {
     loading: false
   }
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleChange = e =>
+    this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit= async(e) => {
     e.preventDefault();
