@@ -53,7 +53,7 @@
     "nyc": "^13.3.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.1.14",
     "winston": "^3.2.1"
   },
